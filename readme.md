@@ -14,12 +14,19 @@ set-up in ```../docker-compose.yml```
     links: 
       - mongodb # database
     volumes: 
-      - ./image-uploading:/app
+      - ./image-uploading/uploads:/app/uploads
+      - images_modules:/app/node_modules
     networks:
       - local
     depends_on: 
       - mongodb # database
+```
 
+and at the end
+
+```yml
+    volumes:
+      images_modules:
 ```
 
 Default image model in ```./config.js```
